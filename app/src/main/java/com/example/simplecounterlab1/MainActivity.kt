@@ -21,14 +21,22 @@ class MainActivity : AppCompatActivity() {
         }
 
         val button = findViewById<Button>(R.id.button)
+        val button2 = findViewById<Button>(R.id.button2)
         val textView = findViewById<TextView>(R.id.textView)
         var counter = 0
          button.setOnClickListener {
-                 Toast.makeText(this, "Button clicked", Toast.LENGTH_SHORT).show()
                  counter++
                  textView.text = counter.toString()
-
+             if (counter >= 20) {
+                 button2.visibility = Button.VISIBLE
+             }
          }
+
+
+        button2.setOnClickListener {
+            counter = counter + 2
+            textView.text = counter.toString()
+        }
 
     }
 }
